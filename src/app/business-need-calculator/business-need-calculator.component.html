@@ -1,0 +1,22 @@
+<div class="bnc">
+  <div class="bnc__bar">
+    <div class="bnc__bar__template empty"></div>
+    <div class="bnc__bar__template progress" [style.width]="progressPercentage"></div>
+  </div>
+  <div class="bnc__heading--main">{{currentStepData.heading}}</div>
+  <div class="bnc__heading--sub">{{currentStepData.sub_heading}}</div>
+  <div class="bnc__options">
+    <ng-template ngFor let-option [ngForOf]="currentStepData.options">
+      <div class="bnc__options__item" (click)="selectStepOption(option.value)" [class.selected-option]="currentStepData.selected_option === option.value">
+        <div class="bnc__options__item__container">
+          <div class="bnc__options__item__container__icon">&#9925;</div>
+          <div class="bnc__options__item__container__desc">{{option.desc}}</div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="bnc__actions">
+    <button class="bnc__actions__btn" (click)="prevStep()">Previous</button>
+    <button class="bnc__actions__btn" (click)="nextStep()">Next</button>
+  </div>
+</div>
